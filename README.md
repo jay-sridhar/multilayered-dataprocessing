@@ -13,8 +13,8 @@ In both approaches, the first step would involve having the data (at any hierarc
 
 In this approach, "Strategies" are used to carryout the core tasks - validation.
 A strategy is configured for each layer / hierarchy. Depending on `key fields` a default strategy or a field name or field value based strategy could be configured.
-
-Code template here:  
+Source code: [One strategy per data type](https://github.com/jay-sridhar/multilayered-dataprocessing/blob/main/src/dataprocessor/one_strategy_per_layer_type.py)
+ 
 #### Advantages:
 1. For a new data type, we will be able to plug a strategy without changing the existing code
 2. Changing the behaviour of an existing strategy would affect only that data type.
@@ -35,6 +35,7 @@ In this approach, the various steps that are involved in processing the layered 
 
 An abstract class for all the four operations are created.
 Depending on the number of various algorithms / strategies we undertake / configure, the concrete classes are created accordingly.
+Source code: [Fine grained strategies by task type](https://github.com/jay-sridhar/multilayered-dataprocessing/blob/main/src/dataprocessor/one_strategy_per_layer_type.py)
 
 #### Advantages
 1. Loose coupling - changing a step in the "validation" or "transformation" would involve modifying or extending only one file
@@ -44,7 +45,13 @@ Depending on the number of various algorithms / strategies we undertake / config
 ## Add-on features
 1. If data at a given layer could be processed independently (without having to process its entire children), we can make use of "Async" framework and let a "Future" object notify the completion
 2. Introduction of queues to collate pushes to storage to avoid frequent IO / hard disk writes.
+3. Complex transformation steps could be broken down into "intermediate" states. The intermediate data could then be cleared after processing the entire data.
 3. Rollback option on failure - `erase()` method in the `Transformer` could be used to find undo processing using `trace_id`
+4. Rollback option also allows us to re-process a file again safely
+
+## Monitoring
+1. Memory is a key metric here as we are processing large chunks of data in parallel. Set alerts based on memory thresholds.
+2. Log all events with the `trace_id` to effectively track and locate failures.
 
 ## Trade-offs
 
