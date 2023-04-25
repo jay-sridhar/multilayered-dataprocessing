@@ -1,0 +1,69 @@
+{
+  "user": {
+    "id": 12345,
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "address": {
+      "street": "123 Elm St",
+      "city": "Metropolis",
+      "state": "XY",
+      "country": "Wonderland",
+      "coordinates": {
+        "latitude": 12.3456,
+        "longitude": -98.7654
+      }
+    },
+    "preferences": {
+      "language": "en",
+      "theme": {
+        "color": "dark",
+        "font": {
+          "family": "Roboto",
+          "size": 14
+        }
+      },
+      "notifications": {
+        "email": true,
+        "sms": false,
+        "channels": [
+          {
+            "id": 1,
+            "name": "General",
+            "type": "public",
+            "subscribed": true
+          },
+          {
+            "id": 2,
+            "name": "Private",
+            "type": "private",
+            "subscribed": false
+          }
+        ]
+      }
+    },
+    "transactions": [
+      {
+        "id": 789,
+        "type": "purchase",
+        "amount": 100.50,
+        "currency": "USD",
+        "date": "2023-04-23",
+        "status": "completed",
+        "items": [
+          {
+            "id": 111,
+            "name": "Product A",
+            "quantity": 1,
+            "price": 50.25
+          },
+          {
+            "id": 112,
+            "name": "Product B",
+            "quantity": 1,
+            "price": 50.25
+          }
+        ]
+      }
+    ]
+  }
+}
