@@ -54,7 +54,7 @@ Depending on the number of various algorithms / strategies we undertake / config
 ## Choice of tools:
  These choices are driven by assumptions. By looking at the sample data and by understanding the full scope of the transformation we can choose one among the following tools.
 1. Kafka for taking the input stream of data
-2. CSV or AWS parameter store for configuring the transformation rules. 
+2. CSV or AWS parameter store for configuring the transformation rules. A distributed cache (Elasticache with Redis / Memcache) for keeping the configurations for faster access.  
 3. ELK / Newrelic one for logging. Newrelic one / Datadog for metrics monitoring 
 4. ECS for scaling the containers where (step 2) would be running
 
