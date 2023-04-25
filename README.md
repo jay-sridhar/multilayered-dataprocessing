@@ -51,6 +51,13 @@ Depending on the number of various algorithms / strategies we undertake / config
 3. Rollback option on failure - `erase()` method in the `Transformer` could be used to find undo processing using `trace_id`
 4. Rollback option also allows us to re-process a file again safely
 
+## Choice of tools:
+ These choices are driven by assumptions. By looking at the sample data and by understanding the full scope of the transformation we can choose one among the following tools.
+1. Kafka for taking the input stream of data
+2. CSV or AWS parameter store for configuring the transformation rules. 
+3. ELK / Newrelic one for logging. Newrelic one / Datadog for metrics monitoring 
+4. ECS for scaling the containers where (step 2) would be running
+
 ## Monitoring
 1. Memory is a key metric here as we are processing large chunks of data in parallel. Set alerts based on memory thresholds.
 2. Log all events with the `trace_id` to effectively track and locate failures.
