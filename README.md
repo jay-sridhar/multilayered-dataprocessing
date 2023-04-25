@@ -13,7 +13,8 @@ In both approaches, the first step would involve having the data (at any hierarc
 
 In this approach, "Strategies" are used to carryout the core tasks - validation.
 A strategy is configured for each layer / hierarchy. Depending on `key fields` a default strategy or a field name or field value based strategy could be configured.
-Source code: [One strategy per data type](https://github.com/jay-sridhar/multilayered-dataprocessing/blob/main/src/dataprocessor/one_strategy_per_layer_type.py)
+#### Code template: 
+[One strategy per data type](https://github.com/jay-sridhar/multilayered-dataprocessing/blob/main/src/dataprocessor/one_strategy_per_layer_type.py)
  
 #### Advantages:
 1. For a new data type, we will be able to plug a strategy without changing the existing code
@@ -35,7 +36,8 @@ In this approach, the various steps that are involved in processing the layered 
 
 An abstract class for all the four operations are created.
 Depending on the number of various algorithms / strategies we undertake / configure, the concrete classes are created accordingly.
-Source code: [Fine grained strategies by task type](https://github.com/jay-sridhar/multilayered-dataprocessing/blob/main/src/dataprocessor/one_strategy_per_layer_type.py)
+#### Code template: 
+[Fine grained strategies by task type](https://github.com/jay-sridhar/multilayered-dataprocessing/blob/main/src/dataprocessor/one_strategy_per_layer_type.py)
 
 #### Advantages
 1. Loose coupling - changing a step in the "validation" or "transformation" would involve modifying or extending only one file
